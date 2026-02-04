@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="100%" height="100%" fill="#e9f2f0"/>
+  <g transform="translate(80,80)">
+    <rect width="640" height="340" rx="12" fill="#223326" stroke="#d4af37" stroke-width="8"/>
+    <text x="320" y="180" font-family="Poppins, Arial" font-size="36" fill="#ffd966" text-anchor="middle">NAME PLATE</text>
+  </g>
+</svg>

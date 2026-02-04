@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>M/S Ashok Kumar And Sons | Custom Name Plate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <h1>M/S Ashok Kumar And Sons</h1>
+      <p class="tagline">Custom Army & Paramilitary Name Plates</p>
+    </div>
+    <div class="contact-small">Call / WhatsApp: <strong>+91 89220 94097</strong></div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="product-left">
+    <div class="gallery">
+      <div class="main-image" id="mainImageWrap">
+        <img id="mainImage" src="images/product-1.svg" alt="Name plate preview" />
+      </div>
+      <div class="thumbnails">
+        <img src="images/thumb-1.svg" data-src="images/product-1.svg" class="thumb active" />
+        <img src="images/thumb-2.svg" data-src="images/product-2.svg" class="thumb" />
+      </div>
+    </div>
+  </div>
+
+  <section class="product-right">
+    <div class="order-box">
+  <h2>Embroidery Name Plate</h2>
+  <p class="muted">High-quality embroidered nameplates. Choose cloth color and thread color below.</p>
+
+      <div class="preview-box" style="margin-top:12px;">
+        <div id="plate-wrap">
+          <div class="plate">
+            <span class="stitch-edge" aria-hidden="true"></span>
+            <span id="previewName">YOUR NAME</span>
+            <span id="previewBlood"></span>
+          </div>
+        </div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); sendWhatsApp();">
+        <label>Enter Name</label>
+        <input type="text" id="name" placeholder="Enter Name" onkeyup="updatePreview()" required>
+
+        <label>Select Blood Group</label>
+        <select id="blood" onchange="updatePreview()" required>
+          <option value="" disabled selected>Select Blood Group</option>
+          <option>A+</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B-</option>
+          <option>AB+</option>
+          <option>AB-</option>
+          <option>O+</option>
+          <option>O-</option>
+        </select>
+
+        <label>Select Force</label>
+        <select id="force" required>
+          <option value="" disabled selected>Select Force</option>
+          <option>CRPF</option>
+          <option>ITBP</option>
+          <option>BSF</option>
+          <option>SSB</option>
+          <option>ARMY</option>
+          <option>GENERAL</option>
+        </select>
+
+        <label>Cloth Color</label>
+        <select id="cloth" required>
+          <option value="" disabled selected>Select Cloth Color</option>
+          <option value="Khaki">Khaki</option>
+          <option value="Black">Black</option>
+          <option value="Paramilitary">Paramilitary</option>
+        </select>
+
+        <label>Thread Color</label>
+        <select id="thread" required>
+          <option value="" disabled selected>Select Thread Color</option>
+          <option value="Yellow">Yellow</option>
+          <option value="White">White</option>
+        </select>
+
+        <label>Mobile Number</label>
+        <input type="tel" id="mobile" placeholder="10 digit mobile number" required>
+
+        <label>Delivery Address</label>
+        <textarea id="address" placeholder="Full Address" required></textarea>
+
+        <p class="price">Price: ₹100</p>
+
+        <button type="button" onclick="sendWhatsApp()" aria-label="Order on WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.52 3.48A11.86 11.86 0 0012 0C5.37 0 .08 4.84.08 10.82c0 1.9.5 3.66 1.45 5.23L0 24l8.4-2.2a11.8 11.8 0 003.6.55c6.63 0 11.92-4.84 11.92-10.82 0-2.88-1.14-5.56-3.4-7.05z" fill="#25D366"/>
+            <path d="M17.6 14.1c-.5-.25-2.9-1.45-3.35-1.62-.45-.17-.77-.25-1.1.25-.33.5-1.27 1.62-1.56 1.95-.29.33-.58.37-1.08.12-.5-.25-2.1-.77-4-2.48-1.48-1.42-2.48-3.14-2.77-3.64-.29-.5-.03-.77.22-1.02.23-.23.5-.58.75-.87.25-.29.33-.5.5-.83.17-.33.08-.62-.04-.86-.12-.25-1.1-2.64-1.5-3.62-.4-.92-.8-.8-1.1-.82-.29-.03-.62-.03-.95-.03-.33 0-.86.12-1.3.62-.44.5-1.66 1.62-1.66 3.96 0 2.33 1.77 4.58 2.02 4.9.25.33 3.5 5.33 8.5 7.36 5 2.04 5 1.37 5.9 1.28.9-.08 2.92-1.2 3.33-2.36.4-1.16.4-2.16.28-2.37-.12-.2-.45-.33-.95-.58z" fill="#fff"/>
+          </svg>
+          Order on WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 M/S Ashok Kumar And Sons</p>
+  <p>Trusted Supplier</p>
+</footer>
+  <script src="../script.js"></script>
+
+  <!-- Mobile sticky CTA -->
+  <div class="cta-fixed" id="ctaFixed" style="display:none">
+    <button id="ctaOrder">Order on WhatsApp</button>
+  </div>
+
+  <script>
+    // show sticky CTA on small screens
+    function checkCTA(){
+      const el = document.getElementById('ctaFixed');
+      if(window.innerWidth <= 600) el.style.display = 'block'; else el.style.display = 'none';
+    }
+    window.addEventListener('resize', checkCTA);
+    window.addEventListener('load', checkCTA);
+    document.getElementById('ctaOrder').addEventListener('click', function(){ sendWhatsApp(); window.scrollTo(0,0); });
+  </script>
+  <script>
+    // gallery thumbnail switching
+    document.querySelectorAll('.thumbnails .thumb').forEach(function(t){
+      t.addEventListener('click', function(){
+        document.querySelectorAll('.thumbnails .thumb').forEach(x=>x.classList.remove('active'));
+        t.classList.add('active');
+        var src = t.getAttribute('data-src');
+        document.getElementById('mainImage').src = src;
+      });
+    });
+  </script>
+  </body>
+</html>
